@@ -2,7 +2,7 @@ global _start       ; expose to the linker as an entry point
                     ; makes _start accessible from other files
 
 ; produce object file and link statically
-; nasm -f elf64 test1.asm -o test1.o && ld -m elf_x86_64 test1.o -o test1 ; ./test1
+; nasm -f elf64 assembler01.asm -o asm01.o && ld -m elf_x86_64 asm01.o -o dead_asm01 ; ./dead_asm01
 
 ; section .data = used for declaring constants
 section .data
@@ -56,7 +56,7 @@ _start:
     ; 1 = destination operand, rax = source operand
     mov rax, 1              ; write(
     mov rdi, 1              ; STDOUT_FILENO = 1 (stdout),
-    mov rsi, msg            ; "Hello, world!\n",
+    mov rsi, msg            ; "Hello, assembly!\n",
     mov rdx, msg_len        ; sizeof("Hello, world!\n")
     syscall                 ; );
     
